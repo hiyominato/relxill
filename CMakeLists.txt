@@ -11,6 +11,13 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -ansi -std=c99 -Wall -Wstrict-prototypes 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-std=c++17 ${PROJECT_ROOT_DIR}")
 
+include(CheckIncludeFileCXX)
+set(CMAKE_REQUIRED_INCLUDES $ENV{HEADAS}/include)
+CHECK_INCLUDE_FILE_CXX("xsTypes.h" HAVE_XSTYPES)
+if(NOT ${HAVE_XSTYPES})
+    message(FATAL_ERROR "Looking for $HEADAS/include/xsTypes.h - not found")
+endif()
+
 include_directories($ENV{HEADAS}/include/)
 link_directories($ENV{HEADAS}/lib/)
 
@@ -26,4 +33,5 @@ set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR})
 add_subdirectory(${SRC_DIR})
 add_subdirectory(test)
 
+target_include_directories(Relxill INTERFACE $ENV{HEADAS}/include)
 
