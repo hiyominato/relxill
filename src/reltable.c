@@ -17,6 +17,7 @@
 */
 
 #include "reltable.h"
+#include "xilltable.h"
 #include "time.h"
 
 static relDat *new_relDat(int nr, int ng, int *status) {
@@ -254,7 +255,7 @@ void read_relline_table(const char *filename, relTable **inp_tab, int *status) {
     assert(tab->arr != NULL);
 
     // get the full filename
-    if (sprintf(fullfilename, "%s/%s", get_relxill_table_path(), filename) == -1) {
+    if (sprintf(fullfilename, "%s", getFullPathTableName(filename, status)) == -1) {
       RELXILL_ERROR("failed to construct full path the rel table", status);
       break;
     }
@@ -402,7 +403,7 @@ void read_lp_table(const char *filename, lpTable **inp_tab, int *status) {
     assert(tab->dat != NULL);
 
     // get the full filename
-    if (sprintf(fullfilename, "%s/%s", get_relxill_table_path(), filename) == -1) {
+    if (sprintf(fullfilename, "%s", getFullPathTableName(filename, status)) == -1) {
       RELXILL_ERROR("failed to construct full path the lp table", status);
       break;
     }

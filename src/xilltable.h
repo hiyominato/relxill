@@ -51,6 +51,7 @@ const char *get_init_xillver_table(xillTable **tab, int model_type, int prim_typ
 
 void print_xilltable_parameters(const xillTable *tab, char *const *xilltab_parname);
 
+extern char *(*getFullPathTableName)(const char *filename, int *status);
 
 fitsfile *open_fits_table_stdpath(const char *filename, int *status);
 

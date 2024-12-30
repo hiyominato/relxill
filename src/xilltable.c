@@ -351,7 +351,7 @@ float *get_xillspec(xillTable *tab, int i0, int i1, int i2, int i3, int i4, int 
   return tab->data_storage[index];
 }
 
-static char *getFullPathTableName(const char *filename, int *status) {
+static char *getFullPathTableName_(const char *filename, int *status) {
 
   int MAXSIZE = 1000;
   char *fullfilename = (char *) malloc(sizeof(char) * MAXSIZE);
@@ -364,6 +364,7 @@ static char *getFullPathTableName(const char *filename, int *status) {
 
   return fullfilename;
 }
+char *(*getFullPathTableName)(const char *, int *) = getFullPathTableName_;
 
 int checkIfTableExists(const char *filename, int *status) {
 
