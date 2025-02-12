@@ -36,7 +36,7 @@ double *global_ener_std = nullptr;
 specCache *global_spec_cache = nullptr;
 
 
-static specCache *new_specCache(int n_cache, int *status) {
+specCache *new_specCache(int n_cache, int *status) {
 
   auto *spec = new specCache;
 
@@ -52,7 +52,7 @@ static specCache *new_specCache(int n_cache, int *status) {
   spec->fftw_xill = new fftw_complex*[n_cache];
   spec->fftw_rel = new fftw_complex*[n_cache];
 
-  spec->fftw_backwards_input = new fftw_complex[spec->n_ener];
+  spec->fftw_backwards_input = fftw_alloc_complex(spec->n_ener);
   spec->fftw_output = new double[spec->n_ener];
 
   spec->plan_c2r = fftw_plan_dft_c2r_1d(spec->n_ener, spec->fftw_backwards_input, spec->fftw_output,FFTW_ESTIMATE);
@@ -66,8 +66,8 @@ static specCache *new_specCache(int n_cache, int *status) {
     spec->fft_xill[ii] = new double*[m];
     spec->fft_rel[ii] = new double*[m];
 
-    spec->fftw_xill[ii] = new fftw_complex[spec->n_ener];
-    spec->fftw_rel[ii] = new fftw_complex[spec->n_ener];
+    spec->fftw_xill[ii] = fftw_alloc_complex(spec->n_ener);
+    spec->fftw_rel[ii] = fftw_alloc_complex(spec->n_ener);
 
    for (jj = 0; jj < m; jj++) {
       spec->fft_xill[ii][jj] = new double[spec->n_ener];
