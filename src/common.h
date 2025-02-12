@@ -27,7 +27,7 @@
 #include <float.h>
 #include <fitsio.h>
 
-#include "fftw/fftw3.h"   // assumes installation in heasoft
+#include <fftw3.h>   // assumes installation in heasoft
 
 
 
