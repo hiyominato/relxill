@@ -38,7 +38,7 @@ void norm_xillver_spec(xillSpec *spec, double incl);
 
 
 
-xillSpec *get_xillver_spectra_table(xillTableParam *param, int *status);
+xillSpec *get_xillver_spectra_table(const xillTableParam *param, int *status);
 
 xillSpec *get_xillver_spectra(xillParam *param, int *status);
 

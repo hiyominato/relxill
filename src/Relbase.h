@@ -139,7 +139,7 @@ int did_xill_param_change(const xillParam *cpar, const xillParam *par);
 
 void free_cache(void);
 
-void convolveSpectrumFFTNormalized(double *ener, const double *fxill, const double *frel, double *fout, int n,
+void convolveSpectrumFFTNormalized(const double *ener, const double *fxill, const double *frel, double *fout, int n,
                                    int re_rel, int re_xill, int izone, specCache *local_spec_cache, int *status);
 
 void get_relxill_conv_energy_grid(int *n_ener, double **ener, int *status);

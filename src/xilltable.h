@@ -35,7 +35,7 @@ xillTable *new_xillTable(int num_param, int *status);
 /* destroy the relline table structure */
 void free_xillTable(xillTable *tab);
 
-xillSpec *interp_xill_table(xillTable *tab, xillTableParam *param, const int *ind, int *status);
+xillSpec *interp_xill_table(xillTable *tab, const xillTableParam *param, const int *ind, int *status);
 
 int get_xilltab_param_index(xillTable *tab, int ind);
 float *get_xilltab_paramvals(const xillTableParam *param, int *status);

@@ -119,7 +119,7 @@ static double* calculate_energyflux_conversion(const double* ener, int n_ener, i
  *  ener has length n+1 and is the energy array
  *  requirements: needs "specCache" to be set up
  * **/
-void fftw_conv_spectrum(double *ener, const double *fxill, const double *frel, double *fout, int n,
+void fftw_conv_spectrum(const double *ener, const double *fxill, const double *frel, double *fout, int n,
                        int re_rel, int re_xill, int izone, specCache *cache, int *status) {
 
   CHECK_STATUS_VOID(*status);
@@ -224,7 +224,7 @@ void normalizeFFTOutput(const double *ener, const double *fxill, const double *f
   }
 
 }
-void convolveSpectrumFFTNormalized(double *ener, const double *fxill, const double *frel, double *fout, int n,
+void convolveSpectrumFFTNormalized(const double *ener, const double *fxill, const double *frel, double *fout, int n,
                                    int re_rel, int re_xill, int izone, specCache *spec_cache_ptr, int *status) {
 
   fftw_conv_spectrum(ener, fxill, frel, fout, n, re_rel, re_xill, izone, spec_cache_ptr, status);

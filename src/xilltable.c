@@ -1088,7 +1088,7 @@ static void resetInpvalsToBoundaries(char *pname, float *p_inpVal, float tabValL
 
 }
 
-xillSpec *interp_xill_table(xillTable *tab, xillTableParam *param, const int *ind, int *status) {
+xillSpec *interp_xill_table(xillTable *tab, const xillTableParam *param, const int *ind, int *status) {
 
   CHECK_STATUS_RET(*status, NULL);
 

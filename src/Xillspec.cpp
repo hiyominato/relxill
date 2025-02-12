@@ -36,7 +36,7 @@ EnerGrid *global_xill_egrid_coarse = nullptr;
  * @param status
  * @return xillSpec
  */
-xillSpec *get_xillver_spectra_table(xillTableParam *param, int *status) {
+xillSpec *get_xillver_spectra_table(const xillTableParam *param, int *status) {
 
   CHECK_STATUS_RET(*status, nullptr);
 
